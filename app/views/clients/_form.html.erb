@@ -1,3 +1,4 @@
+<div class="authform">
 <%= form_with(model: client, local: true) do |form| %>
   <% if client.errors.any? %>
     <div id="error_explanation">
@@ -11,65 +12,66 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :client_name %>
+  <div class="form-group">
+    <%= form.label :nome %>
+    <%= form.text_field :name, id: :client_name, :autofocus => true, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :cpf %>
-    <%= form.text_field :cpf, id: :client_cpf %>
+    <%= form.text_field :cpf, id: :client_cpf , class: 'form-control'%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :cnpj %>
-    <%= form.text_field :cnpj, id: :client_cnpj %>
+    <%= form.text_field :cnpj, id: :client_cnpj , class: 'form-control'%>
   </div>
 
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, id: :client_phone %>
+  <div class="form-group">
+    <%= form.label :telefone %>
+    <%= form.text_field :phone, id: :client_phone , class: 'form-control'%>
   </div>
 
-  <div class="field">
-    <%= form.label :areaCode %>
-    <%= form.text_field :areaCode, id: :client_areaCode %>
+  <div class="form-group">
+    <%= form.label :DDD %>
+    <%= form.text_field :areaCode, id: :client_areaCode , class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :zipCode %>
-    <%= form.text_field :zipCode, id: :client_zipCode %>
+  <div class="form-group">
+    <%= form.label :"codigo postal" %>
+    <%= form.text_field :zipCode, id: :client_zipCode , class: 'form-control'%>
+  </div>
+  <div class="form-group">
+    <%= form.label :rua %>
+    <%= form.text_field :street, id: :client_street , class: 'form-control'%>
   </div>
 
-  <div class="field">
-    <%= form.label :street %>
-    <%= form.text_field :street, id: :client_street %>
+  <div class="form-group">
+    <%= form.label :numero %>
+    <%= form.text_field :number, id: :client_number , class: 'form-control'%>
   </div>
 
-  <div class="field">
-    <%= form.label :number %>
-    <%= form.text_field :number, id: :client_number %>
+  <div class="form-group">
+    <%= form.label :bairro %>
+    <%= form.text_field :neighborhood, id: :client_neighborhood , class: 'form-control'%>
   </div>
 
-  <div class="field">
-    <%= form.label :neighborhood %>
-    <%= form.text_field :neighborhood, id: :client_neighborhood %>
+  <div class="form-group">
+    <%= form.label :cidade %>
+    <%= form.text_field :city, id: :client_city , class: 'form-control'%>
   </div>
 
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city, id: :client_city %>
+  <div class="form-group">
+    <%= form.label :estado %>
+    <%= form.text_field :state, id: :client_state , class: 'form-control'%>
   </div>
+  <div class="form-group">
+  <%= form.label :"id dos contratos" %>
+  <%= form.text_field :contract_ids, id: :contract_ids , class: 'form-control'%>
+  </div>
+  
+    <%= form.submit 'Cadastrar', :class => 'button right' %>
 
-  <div class="field">
-    <%= form.label :state %>
-    <%= form.text_field :state, id: :client_state %>
-  </div>
-    <div class="field">
-    <%= form.label :contract_ids %>
-    <%= form.text_field :contract_ids, id: :contract_ids %>
-  </div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+
 <% end %>
+</div>

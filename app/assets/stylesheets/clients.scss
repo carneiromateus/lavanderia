@@ -1,3 +1,15 @@
 // Place all the styles related to the clients controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+table.listaValores td a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+}
+ 
+table.listaValores td a:hover {
+    text-decoration: underline;
+}
