@@ -1,4 +1,18 @@
 <p id="notice"><%= notice %></p>
+<h1>Peça</h1>
+<p>
+  <strong>Nome:</strong>
+  <%= @peca.name %>
+</p>
 
-<%= link_to 'Edit', edit_peca_path(@peca) %> |
-<%= link_to 'Back', pecas_path %>
+<p>
+  <strong>Valor:</strong>
+  <%= @peca.value %>
+</p>
+
+<p>
+  <strong>Ativo:</strong>
+  <%= @peca.active %>
+</p>
+<%= link_to 'Editar', edit_peca_path(@peca) %> |
+<%= link_to 'Voltar', pecas_path %>

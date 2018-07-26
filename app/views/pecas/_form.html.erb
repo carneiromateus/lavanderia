@@ -1,3 +1,4 @@
+<div class="authform">
 <%= form_with(model: peca, local: true) do |form| %>
   <% if peca.errors.any? %>
     <div id="error_explanation">
@@ -11,7 +12,22 @@
     </div>
   <% end %>
 
+    <div class="form-group">
+    <%= form.label :nome %>
+    <%= form.text_field :name, id: :peca_name , class: 'form-control'%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :valor %>
+    <%= form.number_field :value, id: :peca_value , class: 'form-control'%>
+  </div>
+  <div class="form-group">
+  <%= form.label :"Ativo" %>
+  <%= form.check_box :active, id: :peca_active , class: 'form-control'%>
+  </div>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Cadastrar', :class => 'button right'%>
   </div>
 <% end %>
+</div>
