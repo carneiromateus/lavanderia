@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Is contract:</strong>
+  <%= @request.is_contract %>
+</p>
+
+<p>
+  <strong>Observation:</strong>
+  <%= @request.observation %>
+</p>
+
+<p>
+  <strong>Paid:</strong>
+  <%= @request.paid %>
+</p>
+
+<p>
+  <strong>Open:</strong>
+  <%= @request.open %>
+</p>
+
+<p>
+  <strong>Delivery:</strong>
+  <%= @request.delivery %>
+</p>
+
+<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Back', requests_path %>

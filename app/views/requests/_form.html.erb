@@ -1,0 +1,45 @@
+<%= form_with(model: request, local: true) do |form| %>
+  <% if request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(request.errors.count, "error") %> prohibited this request from being saved:</h2>
+
+      <ul>
+      <% request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :is_contract %>
+    <%= form.check_box :is_contract, id: :request_is_contract %>
+  </div>
+
+  <div class="field">
+    <%= form.label :observation %>
+    <%= form.text_field :observation, id: :request_observation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :paid %>
+    <%= form.check_box :paid, id: :request_paid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :open %>
+    <%= form.check_box :open, id: :request_open %>
+  </div>
+
+  <div class="field">
+    <%= form.label :delivery %>
+    <%= form.text_field :delivery, id: :request_delivery %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+  <% @pecas.each do |peca|%>
+    <%= peca.name %>
+  <%end%>
+<% end %>
