@@ -15,16 +15,31 @@ class ContractsController < ApplicationController
   # GET /contracts/new
   def new
     @contract = Contract.new
+    @pecas = Peca.where(active: true).all
   end
 
   # GET /contracts/1/edit
   def edit
+    @pecas = Peca.where(active: true).all
   end
 
   # POST /contracts
   # POST /contracts.json
   def create
+
     @contract = Contract.new(contract_params)
+    params[:pecas].each do |p|
+      @contract.peca << Peca.find(p)
+      puts p
+    end
+
+
+
+
+
+
+
+
 
     respond_to do |format|
       if @contract.save
@@ -40,6 +55,11 @@ class ContractsController < ApplicationController
   # PATCH/PUT /contracts/1
   # PATCH/PUT /contracts/1.json
   def update
+    params[:pecas].each do |p|
+      @contract.peca << Peca.find(p)
+      puts p
+    end
+
     respond_to do |format|
       if @contract.update(contract_params)
         format.html { redirect_to @contract, notice: 'Contract was successfully updated.' }
@@ -69,6 +89,6 @@ class ContractsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contract_params
-      params.require(:contract).permit(:initialDate, :finalDate)
+      params.require(:contract).permit(:initialDate, :finalDate, pecas:[])
     end
 end

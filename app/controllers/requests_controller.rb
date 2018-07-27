@@ -16,22 +16,31 @@ class RequestsController < ApplicationController
   def new
     @request = Request.new
     @pecas = Peca.where(active: true).all
-
   end
 
   # GET /requests/1/edit
   def edit
+    @pecas = Peca.where(active: true).all
   end
 
   # POST /requests
   # POST /requests.json
   def create
-    @request = Request.new(request_params)
-    peca = Peca.new 
-    peca.name = params[:peca_name]
-    peca.value = params[:peca_value]
-    peca.active = true
-    peca.save
+
+      @request = Request.new(request_params)
+    params[:pecas].each do |p|
+      @request.peca << Peca.find(p)
+      puts p
+    end
+    puts "treta"
+    puts params["pecas"]
+    puts params
+      # peca = Peca.new 
+      # peca.name = params[:peca_name]
+      # peca.value = params[:peca_value]
+      # peca.active = true
+      # peca.save
+      
     respond_to do |format|
       if @request.save
         format.html { redirect_to @request, notice: 'Request was successfully created.' }
@@ -46,6 +55,11 @@ class RequestsController < ApplicationController
   # PATCH/PUT /requests/1
   # PATCH/PUT /requests/1.json
   def update
+    params[:pecas].each do |p|
+      @request.peca << Peca.find(p)
+      puts p
+    end
+
     respond_to do |format|
       if @request.update(request_params)
         format.html { redirect_to @request, notice: 'Request was successfully updated.' }
@@ -75,6 +89,6 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params.require(:request).permit(:is_contract, :observation, :paid, :open, :delivery)
+      params.require(:request).permit(:is_contract, :observation, :paid, :open, :delivery, pecas:[])
     end
 end

@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Is contract:</strong>
+  <strong>Pertence a um contrato?:</strong>
   <%= @request.is_contract %>
 </p>
 
 <p>
-  <strong>Observation:</strong>
+  <strong>Observação:</strong>
   <%= @request.observation %>
 </p>
 
 <p>
-  <strong>Paid:</strong>
+  <strong>Pago:</strong>
   <%= @request.paid %>
 </p>
 
 <p>
-  <strong>Open:</strong>
+  <strong>Aberto:</strong>
   <%= @request.open %>
 </p>
 
 <p>
-  <strong>Delivery:</strong>
+  <strong>Data de Entrega:</strong>
   <%= @request.delivery %>
 </p>
 
-<%= link_to 'Edit', edit_request_path(@request) %> |
-<%= link_to 'Back', requests_path %>
+<%= link_to 'Editar', edit_request_path(@request) %> |
+<%= link_to 'Voltar', requests_path %>

@@ -12,6 +12,8 @@
       </div>
     <% end %>
 
+
+
     <div class="field">
       <%= form.label :"Data inicial" %>
       <%= form.datetime_select :initialDate, id: :contract_initialDate %>
@@ -21,6 +23,36 @@
       <%= form.label :"Data final" %>
       <%= form.datetime_select :finalDate, id: :contract_finalDate %>
     </div>
+
+  <table>
+  <thead>
+    <tr>
+
+      <th>Nome</th>
+      <th>Valor</th>
+      <th>Ativo</th>
+      <th>Adicionar ao contrato</th>
+
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pecas.each do |peca| %>
+      <tr>
+
+        <td height="20%" ><%= peca.name %></td>
+        <td><%= peca.value %></td>
+        <td><%= peca.active %></td>
+        <td><%= check_box_tag 'pecas[]', peca.id, id: peca.id, class: 'form-control'%></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+    
+
+
 
     <div class="actions">
       <%= form.submit 'Cadastrar', :class => 'button right' %>

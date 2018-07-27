@@ -1,3 +1,4 @@
+<div class="authform">
 <%= form_with(model: request, local: true) do |form| %>
   <% if request.errors.any? %>
     <div id="error_explanation">
@@ -11,35 +12,65 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :is_contract %>
-    <%= form.check_box :is_contract, id: :request_is_contract %>
+  <div class="form-group">
+    <%= form.label :"esse pedido é de um contrato?" %>
+    <%= form.check_box :is_contract, id: :request_is_contract , class: 'form-control'%>
   </div>
 
-  <div class="field">
-    <%= form.label :observation %>
-    <%= form.text_field :observation, id: :request_observation %>
+  <div class="form-group">
+    <%= form.label :Observação %>
+    <%= form.text_field :observation, id: :request_observation, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :paid %>
-    <%= form.check_box :paid, id: :request_paid %>
+  <div class="form-group">
+    <%= form.label :Pago %>
+    <%= form.check_box :paid, id: :request_paid , class: 'form-control'%>
   </div>
 
-  <div class="field">
-    <%= form.label :open %>
-    <%= form.check_box :open, id: :request_open %>
+  <div class="form-group">
+    <%= form.label :Aberto %>
+    <%= form.check_box :open, id: :request_open , class: 'form-control'%>
   </div>
 
-  <div class="field">
-    <%= form.label :delivery %>
-    <%= form.text_field :delivery, id: :request_delivery %>
+  <div class="form-group">
+    <%= form.label :"Data de entrega" %> <%= form.text_field :delivery, id: :request_delivery , class: 'form-control'%>
   </div>
+
+
+
+  <table>
+  <thead>
+    <tr>
+      
+      <th>Nome</th>
+      <th>Valor</th>
+      <th>Ativo</th>
+      <th>Adicionar ao pedido</th>
+
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pecas.each do |peca| %>
+      <tr>
+
+        <td height="20%" ><%= peca.name %></td>
+        <td><%= peca.value %></td>
+        <td><%= peca.active %></td>
+        <td><%= check_box_tag 'pecas[]', peca.id, id: peca.id, class: 'form-control'%></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'cadastrar',:class => 'button right'%>
   </div>
-  <% @pecas.each do |peca|%>
-    <%= peca.name %>
-  <%end%>
+
 <% end %>
+ </div>
