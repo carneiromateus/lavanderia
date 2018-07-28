@@ -69,6 +69,6 @@ class PecasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def peca_params
-      params.fetch(:peca, {})
+      params.require(:peca).permit(:name, :value, :active)
     end
 end

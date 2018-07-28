@@ -1,59 +1,57 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @client.name %>
-</p>
-
-<p>
-  <strong>Cpf:</strong>
-  <%= @client.cpf %>
-</p>
-
-<p>
-  <strong>Cnpj:</strong>
-  <%= @client.cnpj %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @client.phone %>
-</p>
-
-<p>
-  <strong>Areacode:</strong>
-  <%= @client.areaCode %>
-</p>
-
-<p>
-  <strong>Zipcode:</strong>
-  <%= @client.zipCode %>
-</p>
-
-<p>
-  <strong>Street:</strong>
-  <%= @client.street %>
-</p>
-
-<p>
-  <strong>Number:</strong>
-  <%= @client.number %>
-</p>
-
-<p>
-  <strong>Neighborhood:</strong>
-  <%= @client.neighborhood %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @client.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @client.state %>
-</p>
+<table class="table table-show">
+  <thead>
+    
+  </thead>
+  <tbody>
+      <tr>
+        <th>Nome</th>
+        <td><%= @client.name %></td>
+      </tr>
+      <tr>
+        <th>CPF</th>
+        <td><%= @client.cpf %></td>
+      </tr>
+      <tr>
+        <th>CNPJ</th>
+        <td><%= @client.cnpj %></td>
+      </tr>
+      <tr>
+        <th>Código de área</th>
+        <td><%= @client.areaCode %></td>
+      </tr>
+      <tr>
+        <th>Telefone</th>
+          <td><%= @client.phone %></td>
+      </tr>
+      </tr>
+      <tr>
+        <th>CEP</th>
+          <td><%= @client.zipCode %></td>
+      </tr>                 
+      <tr>
+        <th>Rua</th>
+          <td><%= @client.street %></td>
+      </tr>
+      <tr>
+        <th>Número</th>
+          <td><%= @client.number %></td>
+      </tr>
+      <tr>
+        <th>Bairro</th>
+          <td><%= @client.neighborhood %></td>
+      </tr>  
+      <tr>
+        <th>Cidade</th>
+          <td><%= @client.city %></td>
+      </tr  >
+      <tr>
+        <th>Estado</th>
+        <td><%= @client.state %></td>
+      </tr>                                      
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_client_path(@client) %> |
 <%= link_to 'Back', clients_path %>

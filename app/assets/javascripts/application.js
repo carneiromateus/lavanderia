@@ -13,6 +13,7 @@
 //= require jquery
 //= require rails-ujs
 //= require turbolinks
+//= require datatables
 //= require bootstrap-sprockets
 //= require_tree .
 $("#menu-toggle").click(function(e) {
