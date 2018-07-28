@@ -2,10 +2,15 @@
 
 <h1>Peças</h1>
 
-<table>
+
+
+<table class="table">
   <thead>
     <tr>
-      <th colspan="3"> Nome</th>
+      <th> Nome</th>
+      <th> Valor</th>
+      <th> Ativa</th>
+      <th> Ações</th>
     </tr>
   </thead>
 
@@ -13,9 +18,9 @@
     <% @pecas.each do |peca| %>
       <tr>
         <td><%= peca.name %></td>
-        <td><%= link_to 'Show', peca %></td>
-        <td><%= link_to 'Edit', edit_peca_path(peca) %></td>
-        <td><%= link_to 'Destroy', peca, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= peca.value %></td>
+        <td><%= peca.active %></td>
+        <td><%= link_to 'Show', peca %> <%= link_to 'Edit', edit_peca_path(peca) %> <%= link_to 'Destroy', peca, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,3 +29,4 @@
 <br>
 
 <%= link_to 'New Peça', new_peca_path %>
+

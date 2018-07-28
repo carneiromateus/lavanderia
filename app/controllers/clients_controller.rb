@@ -5,12 +5,9 @@ class ClientsController < ApplicationController
   before_action :admin_only
   # GET /clients
   # GET /clients.json
+  
   def index
     @clients = Client.all
-      respond_to do |format|
-        format.html
-        format.json { render json: @clients }
-      end
   end
 
   # GET /clients/1

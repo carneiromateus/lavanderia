@@ -1,10 +1,14 @@
 class PecasController < ApplicationController
   before_action :set_peca, only: [:show, :edit, :update, :destroy]
 
+  before_action :authenticate_user!
+  before_action :admin_only
+  # GET /clients
   # GET /pecas
   # GET /pecas.json
   def index
     @pecas = Peca.all
+ 
   end
 
   # GET /pecas/1
@@ -25,7 +29,6 @@ class PecasController < ApplicationController
   # POST /pecas.json
   def create
     @peca = Peca.new(peca_params)
-
     respond_to do |format|
       if @peca.save
         format.html { redirect_to @peca, notice: 'Peca was successfully created.' }
@@ -70,5 +73,10 @@ class PecasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def peca_params
       params.require(:peca).permit(:name, :value, :active)
+    end
+    def admin_only
+      unless current_user.admin?
+          redirect_to root_path, :alert => "Access denied."
+      end
     end
 end

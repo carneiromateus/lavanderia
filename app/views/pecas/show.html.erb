@@ -1,16 +1,23 @@
 <p id="notice"><%= notice %></p>
-<div class="field">
-  <strong>Nome:</strong>
-  <%= @peca.name %>
-</div>
 
-<p>
-  <strong>Valor:</strong>
-  <%= @peca.value %>
-</p>
-<p>
-  <strong>Ativo:</strong>
-  <%= @peca.active %>
-</p>
+<table class="table table-show">
+	<thead>
+		
+	</thead>
+	  <tbody>
+	  <tr>
+	    <th>Nome</th>
+	    <td><%= @peca.name %></td>
+	  </tr>
+	  <tr>
+	    <th>Valor</th>
+	    <td><%= @peca.value %></td>
+	  </tr>
+	  <tr>
+	    <th>Ativo</th>
+	    <td><%= @peca.active %></td>
+	  </tr>
+	  </tbody>
+</table>	  
 <%= link_to 'Edit', edit_peca_path(@peca) %> |
 <%= link_to 'Back', pecas_path %>
