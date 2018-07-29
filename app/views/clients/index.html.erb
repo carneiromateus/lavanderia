@@ -1,45 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div class='show-button'>
+  <a href="<%=new_client_path%>" class="btn btn-primary btn-client">+ Cliente</a>
+</div>
+<div class="col-md-12">
+  <div class="col-md-4">
+    <p>Nome</p>
+  </div>
+  <div class="col-md-4">
+    <p>Telefone</p>
+  </div>
+  <div class="col-md-3">
+    <p>Acões</p>
+  </div>
+</div>  
+<% @clients.each do |client| %>
+<div class="col-md-12">
+  <div class="col-md-4">
+    <p><%= client.name %></p>
+  </div>
+  <div class="col-md-4">
+    <p>(<%= client.areaCode %>) <%= client.phone %></p>
+  </div>
+  <div class="col-md-1">
+    <%= link_to '<i class="fa fa-eye"></i>'.html_safe, client %>
+    <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_client_path(client) %>
+    <%= link_to '<i class="fa fa-trash"></i>'.html_safe, client, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>   
+</div>
+<%end%>
 
-<h1>Clients</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Nome</th>    
-      <th scope="col">Cpf</th>
-      <th scope="col">Cnpj</th>
-      <th scope="col">Código de área</th>
-      <th scope="col">Telefone</th>
-      <th scope="col">CEP</th>
-      <th scope="col">Rua</th>
-      <th scope="col">Número</th>
-      <th scope="col">Bairro</th>
-      <th scope="col">Cidade</th>
-      <th scope="col">Estado</th>
-      <th scope="col">Açôes</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @clients.each do |client| %>
-      <tr>
-        <td><%= client.name %></td>
-        <td><%= client.cpf %></td>
-        <td><%= client.cnpj %></td>
-        <td><%= client.areaCode %></td>
-        <td><%= client.phone %></td>
-        <td><%= client.zipCode %></td>
-        <td><%= client.street %></td>
-        <td><%= client.number %></td>
-        <td><%= client.neighborhood %></td>
-        <td><%= client.city %></td>
-        <td><%= client.state %></td>
-        <td><%= link_to 'Show', client %> <%= link_to 'Edit', edit_client_path(client) %> <%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
- </table> 
-
-<br/>
-
-<%= link_to 'New Client', new_client_path %>

@@ -1,32 +1,35 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Peças</h1>
-
-
-
-<table class="table">
-  <thead>
-    <tr>
-      <th> Nome</th>
-      <th> Valor</th>
-      <th> Ativa</th>
-      <th> Ações</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pecas.each do |peca| %>
-      <tr>
-        <td><%= peca.name %></td>
-        <td><%= peca.value %></td>
-        <td><%= peca.active %></td>
-        <td><%= link_to 'Show', peca %> <%= link_to 'Edit', edit_peca_path(peca) %> <%= link_to 'Destroy', peca, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Peça', new_peca_path %>
-
+<div class='show-button'>
+  <a href="<%=new_peca_path%>" class="btn btn-primary btn-client">+ Peça</a>
+</div>
+<div class="col-md-12">
+  <div class="col-md-3">
+    <p>Nome</p>
+  </div>
+  <div class="col-md-3">
+    <p>Valor</p>
+  </div>
+  <div class="col-md-3">
+    <p>Ativa</p>
+  </div>
+  <div class="col-md-1">
+    <p>Ações</p>
+  </div>  
+</div>  
+<% @pecas.each do |peca| %>
+<div class="col-md-12">
+  <div class="col-md-3">
+    <p><%= peca.name %></p>
+  </div>
+  <div class="col-md-3">
+    <p><%=peca.value%></p>
+  </div>
+  <div class="col-md-3">
+    <p><%=peca.active%></p>
+  </div>  
+  <div class="col-md-1">
+    <%= link_to '<i class="fa fa-eye"></i>'.html_safe, peca %>
+    <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_peca_path(peca) %>
+    <%= link_to '<i class="fa fa-trash"></i>'.html_safe, peca, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>   
+</div>
+<%end%>

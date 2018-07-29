@@ -1,23 +1,19 @@
-<p id="notice"><%= notice %></p>
+<div class="show-container col-md-12">
+  <h3 class="show-title"><%= @peca.name %></h3>
 
-<table class="table table-show">
-	<thead>
-		
-	</thead>
-	  <tbody>
-	  <tr>
-	    <th>Nome</th>
-	    <td><%= @peca.name %></td>
-	  </tr>
-	  <tr>
-	    <th>Valor</th>
-	    <td><%= @peca.value %></td>
-	  </tr>
-	  <tr>
-	    <th>Ativo</th>
-	    <td><%= @peca.active %></td>
-	  </tr>
-	  </tbody>
-</table>	  
-<%= link_to 'Edit', edit_peca_path(@peca) %> |
-<%= link_to 'Back', pecas_path %>
+    <div class="col-md-4 col-md-offset-4 show-content">
+      <div class="col-md-6 show-labels">
+        <p>Valor</p>
+        <p>Ativa</p>
+      </div>
+      <div class="col-md-6 show-data">
+        <p><%= @peca.value %> </p>
+        <p><%= @peca.active %> </p>
+      </div>  
+    </div>
+    <div class="col-sm-12 show-actions-btn" >
+      <p><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_peca_path(@peca) %> | <%= link_to '<i class="fa fa-undo"></i>'.html_safe, pecas_path %></p>
+    </div>
+  <br>
+  <br>
+</div>
