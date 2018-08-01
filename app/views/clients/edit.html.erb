@@ -1,6 +1,8 @@
+
 <h1>Editando Cliente</h1>
 
 <%= render 'form', client: @client %>
 
-<%= link_to 'Mostrar', @client %> |
-<%= link_to 'Voltar', clients_path %>
+<%= link_to '<i class="fa fa-eye"></i>'.html_safe, @client %> | 
+<%= link_to '<i class="fa fa-undo"></i>'.html_safe, clients_path %>
+

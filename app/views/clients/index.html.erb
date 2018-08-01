@@ -1,4 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class='show-button'>
+  <a href="<%=new_client_path%>" class="btn btn-primary btn-client">+ Cliente</a>
+</div>
+<div class="col-md-12">
+  <div class="col-md-4">
+    <p>Nome</p>
+  </div>
+  <div class="col-md-4">
+    <p>Telefone</p>
+  </div>
+  <div class="col-md-3">
+    <p>Acões</p>
+  </div>
+</div>  
+<% @clients.each do |client| %>
+<div class="col-md-12">
+  <div class="col-md-4">
+    <p><%= client.name %></p>
+  </div>
+  <div class="col-md-4">
+    <p>(<%= client.areaCode %>) <%= client.phone %></p>
+  </div>
+  <div class="col-md-1">
+    <%= link_to '<i class="fa fa-eye"></i>'.html_safe, client %>
+    <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_client_path(client) %>
+    <%= link_to '<i class="fa fa-trash"></i>'.html_safe, client, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>   
+</div>
+<%end%>
+
 
 <h1 align="center">Clients</h1>
 
@@ -43,3 +72,4 @@
 <br>
 
 <%= link_to 'Cadastrar Novo Cliente', new_client_path %>
+

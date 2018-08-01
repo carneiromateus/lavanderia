@@ -1,59 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div class="show-container col-md-12">
+  <h3 class="show-title"><%= @client.name %></h3>
 
-<p>
-  <strong>Name:</strong>
-  <%= @client.name %>
-</p>
+    <div class="col-md-4 col-md-offset-4 show-content">
+      <div class="col-md-6 show-labels">
+        <%if @client.cpf!='' %>
+          <p>CPF</p>
+        <%else%>
+          <p>CNPJ</p>
+        <%end%>
+        <p>Telefone</p>
+        <p>CEP</p>
+        <p>Endereço</p>
+        <p>Bairro</p>
+        <p>Cidade</p>
+        <p>Estado</p>
+      </div>
+      <div class="col-md-6 show-data">
+        <%if @client.cpf!='' %>
+          <p><%= @client.cpf %></p> 
+        <%else%>
+          <p><%= @client.cnpj %></p>
+        <%end%>
 
-<p>
-  <strong>Cpf:</strong>
-  <%= @client.cpf %>
-</p>
+        <p> (<%= @client.areaCode %>) <%= @client.phone %></p>
+      
+        <p><%= @client.zipCode %></p>
+      
+      
+        <p><%= @client.street %>, <%= @client.number %> </p>
+      
+        <p><%= @client.neighborhood %> </p>
+      
+        <p><%= @client.city %> </p>
+     
+        <p><%= @client.state %> </p>
+      </div>  
+    </div>
+    <div class="col-sm-12 show-actions-btn" >
+      <p><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_client_path(@client) %> | <%= link_to '<i class="fa fa-undo"></i>'.html_safe, clients_path %></p>
+    </div>
+  <br>
+  <br>
+</div>
 
-<p>
-  <strong>Cnpj:</strong>
-  <%= @client.cnpj %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @client.phone %>
-</p>
-
-<p>
-  <strong>Areacode:</strong>
-  <%= @client.areaCode %>
-</p>
-
-<p>
-  <strong>Zipcode:</strong>
-  <%= @client.zipCode %>
-</p>
-
-<p>
-  <strong>Street:</strong>
-  <%= @client.street %>
-</p>
-
-<p>
-  <strong>Number:</strong>
-  <%= @client.number %>
-</p>
-
-<p>
-  <strong>Neighborhood:</strong>
-  <%= @client.neighborhood %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @client.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @client.state %>
-</p>
-
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+ 

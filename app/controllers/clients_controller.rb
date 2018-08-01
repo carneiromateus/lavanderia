@@ -5,6 +5,7 @@ class ClientsController < ApplicationController
   before_action :admin_only
   # GET /clients
   # GET /clients.json
+  
   def index
     @clients = Client.all
   end

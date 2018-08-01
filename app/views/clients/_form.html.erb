@@ -12,6 +12,7 @@
     </div>
   <% end %>
 
+
   <div class="form-group">
     <%= form.label :nome %>
     <%= form.text_field :name, id: :client_name, :autofocus => true, class: 'form-control' %>
@@ -68,6 +69,7 @@
   <div class="form-group">
   <%= form.label :"id dos contratos" %>
   <%= form.text_field :contract_ids, id: :contract_ids , class: 'form-control'%>
+
   </div>
   
     <%= form.submit 'Cadastrar', :class => 'button right' %>

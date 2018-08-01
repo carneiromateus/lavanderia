@@ -1,6 +1,8 @@
-<h1 align="center">Editando Peça</h1>
+
+<h1>Editando Peça</h1>
 
 <%= render 'form', peca: @peca %>
 
-<%= link_to 'Mostrar', @peca %> |
-<%= link_to 'Voltar', pecas_path %>
+<%= link_to '<i class="fa fa-pencil"></i>'.html_safe, @peca %> | 
+<%= link_to '<i class="fa fa-undo"></i>'.html_safe, pecas_path %>
+
