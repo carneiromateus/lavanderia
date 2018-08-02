@@ -15,6 +15,7 @@
                 <li class="<%= 'active' if current_page?(clients_url) %>"><%= link_to 'Clientes', clients_url %></li>
                 <li class="<%= 'active' if current_page?(users_path) %>"><%= link_to 'Usuarios', users_path %></li>
                 <li class="<%= 'active' if current_page?(contracts_url) %>"><%= link_to 'Contratos', contracts_url %></li>
+                <li class="<%= 'active' if current_page?(requests_url) %>"><%= link_to 'Pedidos', requests_url %></li>
                 <li class="<%= 'active' if current_page?(pecas_url) %>"><%= link_to 'Peças', pecas_url %></li>
                 <li  class="<%= 'active' if current_page?(destroy_user_session_path) %>"><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
              <% end %>

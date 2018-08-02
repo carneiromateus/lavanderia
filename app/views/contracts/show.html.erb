@@ -9,8 +9,8 @@
   <strong>Finaldate:</strong>
   <%= @contract.finalDate %>
 </p>
-<% if @contract.pecas.lenth>0 %>
-	<% @contract.pecas.each do | peca | %>
+<% if @contract.peca.count>0 %>
+	<% @contract.peca.each do | peca | %>
 		<%= peca.name%>	
 	<%end%>
 <%end%>

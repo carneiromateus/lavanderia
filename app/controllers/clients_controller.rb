@@ -8,21 +8,24 @@ class ClientsController < ApplicationController
   
   def index
     @clients = Client.all
+    @contract = Contract.all
   end
 
   # GET /clients/1
   # GET /clients/1.json
   def show
+    @contract = Contract.all
   end
 
   # GET /clients/new
   def new
     @client = Client.new
-
+    @contract = Contract.all
   end
 
   # GET /clients/1/edit
   def edit
+    @contract = Contract.all
   end
 
   # POST /clients

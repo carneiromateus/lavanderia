@@ -5,11 +5,13 @@ class ContractsController < ApplicationController
   # GET /contracts.json
   def index
     @contracts = Contract.all
+    @pecas = Peca.where(active: true).all
   end
 
   # GET /contracts/1
   # GET /contracts/1.json
   def show
+     @pecas = Peca.where(active: true).all
   end
 
   # GET /contracts/new
@@ -32,15 +34,15 @@ class ContractsController < ApplicationController
       @contract.peca << Peca.find(p)
       puts p
     end
-
-
-
-
-
-
-
-
-
+    puts "treta"
+    puts params["pecas"]
+    puts params
+      # peca = Peca.new 
+      # peca.name = params[:peca_name]
+      # peca.value = params[:peca_value]
+      # peca.active = true
+      # peca.save
+      
     respond_to do |format|
       if @contract.save
         format.html { redirect_to @contract, notice: 'Contract was successfully created.' }

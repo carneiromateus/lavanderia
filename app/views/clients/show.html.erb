@@ -4,37 +4,18 @@
     <div class="col-md-4 col-md-offset-4 show-content">
       <div class="col-md-6 show-labels">
         <%if @client.cpf!='' %>
-          <p>CPF</p>
+          <p>CPF : <%= @client.cpf %></p>
         <%else%>
-          <p>CNPJ</p>
+          <p>CNPJ : <%= @client.cnpj %></p>
         <%end%>
-        <p>Telefone</p>
-        <p>CEP</p>
-        <p>Endereço</p>
-        <p>Bairro</p>
-        <p>Cidade</p>
-        <p>Estado</p>
+        <p>Telefone : (<%= @client.areaCode %>) <%= @client.phone %></p>
+        <p>CEP : <%= @client.zipCode %></p>
+        <p>Endereço : <%= @client.street %>, <%= @client.number %> </p>
+        <p>Bairro : <%= @client.neighborhood %></p>
+        <p>Cidade : <%= @client.city %> </p>
+        <p>Estado: <%= @client.state %></p>
       </div>
-      <div class="col-md-6 show-data">
-        <%if @client.cpf!='' %>
-          <p><%= @client.cpf %></p> 
-        <%else%>
-          <p><%= @client.cnpj %></p>
-        <%end%>
-
-        <p> (<%= @client.areaCode %>) <%= @client.phone %></p>
       
-        <p><%= @client.zipCode %></p>
-      
-      
-        <p><%= @client.street %>, <%= @client.number %> </p>
-      
-        <p><%= @client.neighborhood %> </p>
-      
-        <p><%= @client.city %> </p>
-     
-        <p><%= @client.state %> </p>
-      </div>  
     </div>
     <div class="col-sm-12 show-actions-btn" >
       <p><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_client_path(@client) %> | <%= link_to '<i class="fa fa-undo"></i>'.html_safe, clients_path %></p>

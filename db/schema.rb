@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180726232400) do
+ActiveRecord::Schema.define(version: 20180801004408) do
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20180726232400) do
     t.float "value"
     t.boolean "active"
     t.integer "request_id"
+    t.integer "contract_id"
   end
 
   create_table "requests", force: :cascade do |t|

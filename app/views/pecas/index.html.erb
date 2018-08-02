@@ -1,37 +1,37 @@
 
 <div class='show-button'>
-  <a href="<%=new_peca_path%>" class="btn btn-primary btn-client">+ Peça</a>
+  <a href="<%=new_peca_path%>" class="btn btn-primary btn-client">Nova Peça</a>
 </div>
-<div class="col-md-12">
-  <div class="col-md-3">
-    <p>Nome</p>
-  </div>
-  <div class="col-md-3">
-    <p>Valor</p>
-  </div>
-  <div class="col-md-3">
-    <p>Ativa</p>
-  </div>
-  <div class="col-md-1">
-    <p>Ações</p>
-  </div>  
-</div>  
-<% @pecas.each do |peca| %>
-<div class="col-md-12">
-  <div class="col-md-3">
-    <p><%= peca.name %></p>
-  </div>
-  <div class="col-md-3">
-    <p><%=peca.value%></p>
-  </div>
-  <div class="col-md-3">
-    <p><%=peca.active%></p>
-  </div>  
-  <div class="col-md-1">
-    <%= link_to '<i class="fa fa-eye"></i>'.html_safe, peca %>
-    <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_peca_path(peca) %>
-    <%= link_to '<i class="fa fa-trash"></i>'.html_safe, peca, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </div>   
-</div>
-<%end%>
 
+
+<h1 align="center">Peças</h1>
+
+<table width="100%" border="1.5px">
+  <thead>
+    <div class="col-md-12">
+    <tr >
+      <th width="20%"><div class="col-md-3">Nome</div></th>
+      <th><div class="col-md-3">Valor</div></th>
+      <th><div class="col-md-3">Ativo</div></th>
+     
+      <th colspan="3"></th>
+    </tr>
+  </div>
+  </thead>
+
+  <tbody>
+    <% @pecas.each do |peca| %>
+    <div class="col-md-12">
+      <tr>
+        <td height="20%"><div class="col-md-3"><%=peca.name %></div></td>
+        <td><div class="col-md-3"><%=peca.value%></div></td>
+        <td><div class="col-md-3"><%=peca.active%></div></td>
+
+        <td><%= link_to  '<i class="fa fa-eye"></i>'.html_safe, peca %></td>
+        <td><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_peca_path(peca) %></td>
+        <td><%= link_to '<i class="fa fa-trash"></i>'.html_safe, peca, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+      </tr>
+    </div>
+    <% end %>
+  </tbody>
+</table>

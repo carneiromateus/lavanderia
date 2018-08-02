@@ -1,46 +1,20 @@
 <div class='show-button'>
-  <a href="<%=new_client_path%>" class="btn btn-primary btn-client">+ Cliente</a>
+  <a href="<%=new_client_path%>" class="btn btn-primary btn-client">Novo Cliente</a>
 </div>
-<div class="col-md-12">
-  <div class="col-md-4">
-    <p>Nome</p>
-  </div>
-  <div class="col-md-4">
-    <p>Telefone</p>
-  </div>
-  <div class="col-md-3">
-    <p>Acões</p>
-  </div>
-</div>  
-<% @clients.each do |client| %>
-<div class="col-md-12">
-  <div class="col-md-4">
-    <p><%= client.name %></p>
-  </div>
-  <div class="col-md-4">
-    <p>(<%= client.areaCode %>) <%= client.phone %></p>
-  </div>
-  <div class="col-md-1">
-    <%= link_to '<i class="fa fa-eye"></i>'.html_safe, client %>
-    <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_client_path(client) %>
-    <%= link_to '<i class="fa fa-trash"></i>'.html_safe, client, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </div>   
-</div>
-<%end%>
 
 
-<h1 align="center">Clients</h1>
+
+<h1 align="center">Clientes</h1>
 
 <table width="100%" border="1.5px">
   <thead>
-    <tr>
-      <th style="padding-left=3%;padding-right=3%;">Nome</th>
-      <th>Cpf</th>
-      <th>Cnpj</th>
+    <tr >
+      <th width="20%">Nome</th>
+      <th>CPF</th>
+      <th>CNPJ</th>
       <th>Telefone</th>
-      <th>DDD</th>
       <th>Rua</th>
-      <th>Numero</th>
+      <th>Nº</th>
       <th>Bairro</th>
       <th>Cidade</th>
       <th>Estado</th>
@@ -51,25 +25,22 @@
   <tbody>
     <% @clients.each do |client| %>
       <tr>
-        <td height="20%" ><%= client.name %></td>
+        <td height="20%"><%=client.name %></td>
         <td><%= client.cpf %></td>
         <td><%= client.cnpj %></td>
-        <td><%= client.phone %></td>
-        <td><%= client.areaCode %></td>
+        <td>(<%= client.areaCode %>) <%= client.phone %></td>
         <td><%= client.street %></td>
         <td><%= client.number %></td>
         <td><%= client.neighborhood %></td>
         <td><%= client.city %></td>
         <td><%= client.state %></td>
-        <td><%= link_to 'Mostar', client %></td>
-        <td><%= link_to 'Editar', edit_client_path(client) %></td>
-        <td><%= link_to 'Excluir', client, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <td><%= link_to  '<i class="fa fa-eye"></i>'.html_safe, client %></td>
+        <td><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_client_path(client) %></td>
+        <td><%= link_to '<i class="fa fa-trash"></i>'.html_safe, client, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'Cadastrar Novo Cliente', new_client_path %>
 

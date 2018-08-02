@@ -1,4 +1,4 @@
-<div class="authform", max-width: 400px>
+<div class="authform">
   <%= form_with(model: contract, local: true) do |form| %>
     <% if contract.errors.any? %>
       <div id="error_explanation">
@@ -13,15 +13,21 @@
     <% end %>
 
 
+    <div class="field">
+        <%= form.label :"Cliente" %>
+        <%= form.select :client, Client.all.collect { 
+          |p| [ p.name, p.id ] 
+        }, include_blank: false, class: 'form-control'%>
+      </div>
 
     <div class="field">
       <%= form.label :"Data inicial" %>
-      <%= form.datetime_select :initialDate, id: :contract_initialDate %>
+      <%= form.datetime_select :initialDate, id: :contract_initialDate , class: 'form-control'%>
     </div>
 
     <div class="field">
       <%= form.label :"Data final" %>
-      <%= form.datetime_select :finalDate, id: :contract_finalDate %>
+      <%= form.datetime_select :finalDate, id: :contract_finalDate , class: 'form-control'%>
     </div>
 
   <table>

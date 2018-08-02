@@ -1,29 +1,22 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Pertence a um contrato?:</strong>
-  <%= @request.is_contract %>
-</p>
+<div class="show-container col-md-12">
+  <h3 class="show-title">Exibindo Peça</h3>
 
-<p>
-  <strong>Observação:</strong>
-  <%= @request.observation %>
-</p>
+    <div class="col-md-4 col-md-offset-4 show-content">
+      <div class="col-md-6 show-labels">
+        <p>Pertence a um contrato?  <%= @request.is_contract %> </p>
+        <p>Observação: <%= @request.observation %> </p>
+        <p>Pago: <%= @request.paid %> </p>
+        <p>Aberto: <%= @request.open %> </p>
+        <p>Data de Entrega: <%= @request.delivery %> </p>
 
-<p>
-  <strong>Pago:</strong>
-  <%= @request.paid %>
-</p>
+      </div>
+      
+    </div>
+    <div class="col-sm-12 show-actions-btn" >
+      <p><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_request_path(@request) %> | <%= link_to '<i class="fa fa-undo"></i>'.html_safe, requests_path %></p>
+    </div>
+  <br>
+  <br>
+</div>
 
-<p>
-  <strong>Aberto:</strong>
-  <%= @request.open %>
-</p>
-
-<p>
-  <strong>Data de Entrega:</strong>
-  <%= @request.delivery %>
-</p>
-
-<%= link_to 'Editar', edit_request_path(@request) %> |
-<%= link_to 'Voltar', requests_path %>
